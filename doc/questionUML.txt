@@ -1,2 +1,47 @@
 Ecrire ici votre réponse à la question UML.
 
+
+
+FIGURE 2 :
+
+Dans la Figure 2, tout est regroupé dans la classe Event. Cette classe gère à la fois les événements simples et les événements répétitifs ou terminés.
+Elle contient tous les attributs et méthodes nécessaires pour ces différents cas.
+
+Avantages :
+
+    - Plus simple à comprendre : Tout est centralisé dans une seule classe, ce qui peut être pratique pour un petit projet.
+    - Moins de classes : Il y a moins d'éléments à gérer, donc c'est plus rapide à mettre en place.
+    - Accès direct : Toutes les fonctionnalités sont disponibles au même endroit.
+
+Inconvénients :
+
+    - Trop de responsabilités : La classe Event fait beaucoup en même temps, ce qui peut rendre le code difficile à modifier ou à améliorer plus tard.
+    - Moins flexible : Si on veut ajouter de nouvelles fonctionnalités pour les événements répétitifs ou terminés, on risque de compliquer encore plus la classe.
+    - Mal organisé : Il n'y a pas de séparation claire entre les différents types d'événements, ce qui peut poser problème à long terme.
+
+
+
+FIGURE 3 :
+
+Dans la Figure 3, on utilise plusieurs classes. La classe Event reste simple et sert de base. Les événements répétitifs (RepetitiveEvent) et ceux avec
+une terminaison (FixedTerminationEvent) sont gérés dans des classes séparées qui héritent de Event.
+
+Avantages :
+
+    - Bien organisé : Chaque type d’événement a sa propre classe, ce qui rend le code plus clair et facile à comprendre.
+    - Facile à améliorer : Si on veut ajouter des fonctionnalités spécifiques, on peut le faire dans la bonne classe sans toucher au reste.
+    - Code plus propre : La classe Event est allégée et ne gère que les parties communes à tous les événements.
+
+Inconvénients :
+
+    - Plus de classes : Le diagramme est plus détaillé, ce qui peut être intimidant au début.
+    - plus long à coder : Il faut écrire plus de classes, donc ça demande plus de travail au départ.
+
+
+
+CONCLUSION :
+
+La Figure 2 convient mieux pour des projets simples ou si on sait que les besoins ne vont pas évoluer. Puis, la Figure 3 est idéal pour des projets plus gros
+ou qui risquent de changer dans le futur. Le code sera plus clair, plus facile à maintenir et à faire évoluer.
+
+Si le projet est petit, la Figure 2 peut suffir. Mais si on veut un code plus solide et plus organisé, il vaut mieux choisir la Figure 3.

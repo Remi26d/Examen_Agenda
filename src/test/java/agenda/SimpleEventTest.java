@@ -55,5 +55,24 @@ public class SimpleEventTest {
         assertTrue(simple.toString().contains("Simple event"),
             "toString() doit montrer le titre de l'événement");
     }
-    
+
+    @Test
+    public void eventWithZeroDurationIsInStartDay() {
+        Event zeroDurationEvent = new Event("Zero Duration Event", nov_1_2020_22_30, Duration.ZERO);
+        assertTrue(zeroDurationEvent.isInDay(nov_1_2020), "Un événement avec durée zéro doit être dans son jour de début");
+        assertFalse(zeroDurationEvent.isInDay(nov_1_2020.plusDays(1)), "Un événement avec durée zéro ne doit pas déborder sur le jour suivant");
+    }
+
+    @Test
+    public void eventOverlappingMidnight() {
+        LocalDateTime startBeforeMidnight = nov_1_2020_22_30.withHour(23).withMinute(59);
+        Duration durationCrossMidnight = Duration.ofMinutes(5);
+        Event midnightEvent = new Event("Midnight Event", startBeforeMidnight, durationCrossMidnight);
+
+        assertTrue(midnightEvent.isInDay(nov_1_2020), "L'événement doit être dans le jour de début avant minuit");
+        assertTrue(midnightEvent.isInDay(nov_1_2020.plusDays(1)), "L'événement doit être dans le jour suivant après minuit");
+    }
+
+
+
 }
